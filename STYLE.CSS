@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+#message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+input,
+textarea {
+  width: 300px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#outputContainer {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: auto;
+  max-width: 300px;
+  display: flex;
+     max-height: 90vh;        /* Limit height to allow scrolling */
+  overflow-y: auto;  
+  flex-direction: column-reverse;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.output-message {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #fff;
+  word-wrap: break-word;
+
+  animation: fadeIn 0.3s ease-in;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.name-tag {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.text-body {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+@media (max-width: 480px) {
+  #message {
+    width: 98vw;
+    right: 1%;
+    top: 10px;
+    gap: 25px;
+  }
+
+  input,
+  textarea,
+  button {
+    font-size: 32px;
+    padding: 20px;
+  }
+
+  textarea {
+    height: 250px;
+  }
+
+  button {
+    height: 80px;
+  }
+
+  #outputContainer {
+    max-height: 90vh;    /* almost full screen height */
+    width: 98vw;
+  }
+
+  .output-message {
+    font-size: 40px;         /* HUGE text */
+    padding: 40px 30px;
+    min-height: 80vh;        /* so one message fills screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center text */
+  }
+
+  .name-tag {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .text-body {
+    font-size: 38px;
+  }
+}
